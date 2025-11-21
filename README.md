@@ -138,6 +138,19 @@ To stop the Flask server, press `Ctrl + C` in the terminal where it's running.
 - **joblib**: Model serialization
 - **numpy**: Numerical operations
 
+## Configuration
+
+### Debug Mode
+
+By default, the application runs in production mode with debug disabled for security. To enable debug mode for local development, set the `FLASK_DEBUG` environment variable:
+
+```bash
+export FLASK_DEBUG=true
+python app.py
+```
+
+**Important**: Never enable debug mode in production environments as it exposes security vulnerabilities.
+
 ## Troubleshooting
 
 ### Model Not Found Error
@@ -150,10 +163,10 @@ python setup.py
 
 ### Port Already in Use
 
-If port 8000 is already in use, you can modify the port in `app.py`:
+If port 5000 is already in use, you can modify the port in `app.py`:
 
 ```python
-app.run(host='0.0.0.0', port=8001, debug=True)
+app.run(host='0.0.0.0', port=8000, debug=debug_mode)
 ```
 
 ### CSV Format Issues
