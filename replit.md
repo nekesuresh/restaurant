@@ -6,12 +6,14 @@ A Flask-based web application that analyzes restaurant reviews and classifies th
 **Current State**: Fully functional MVP with web interface, batch processing, and model retraining capabilities.
 
 ## Recent Changes
-- **November 21, 2025**: Initial project setup
+- **November 21, 2025**: Enhanced model training and initial setup
   - Created complete Flask application with sentiment analysis
   - Implemented web UI with teal gradient header and result pages
   - Added batch prediction and model retraining CLI tools
   - Configured workflow to run on port 5000
-  - Initialized pre-trained model with demo restaurant review data
+  - Enhanced model with 90 diverse training examples (30 positive, 30 negative, 30 neutral)
+  - Improved TF-IDF parameters (2000 features, trigrams, balanced class weights)
+  - Verified accurate predictions across all sentiment categories
 
 ## Project Architecture
 
@@ -22,8 +24,10 @@ A Flask-based web application that analyzes restaurant reviews and classifies th
   - Runs on port 5000 with host 0.0.0.0
   
 - **setup.py**: Model initialization script
-  - Creates and trains initial LogisticRegression model
-  - Uses 30 demo restaurant reviews (10 positive, 10 negative, 10 neutral)
+  - Creates and trains LogisticRegression model with enhanced parameters
+  - Uses 90 diverse restaurant reviews (30 positive, 30 negative, 30 neutral)
+  - Improved feature extraction: 2000 TF-IDF features with trigrams
+  - Balanced class weights for better accuracy
   - Saves model to `model/model.joblib`
   
 - **batch_predict.py**: CLI tool for bulk predictions
